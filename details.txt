@@ -1,0 +1,36 @@
+Interview Talking Points
+
+						When asked "Tell me about this project"
+
+"I developed a RAG-based medical chatbot that helps users get accurate answers to medical queries from a curated knowledge base. 
+The system processes PDF medical documents, converts them into searchable embeddings, and uses Mistral's instruction-tuned model to generate contextual responses. What makes it special is that it only answers based on the provided documents, preventing hallucinations common in general-purpose LLMs."
+When asked about technical choices
+
+Mistral over other models: "I chose Mistral-7B-Instruct because it's specifically fine-tuned for instruction following, has excellent reasoning capabilities for medical content, and offers the best price-performance ratio for this use case."
+RAG over fine-tuning: "RAG allows us to update the knowledge base without retraining the model, ensures responses are grounded in factual documents, and is much more cost-effective than fine-tuning for domain-specific knowledge."
+
+Potential Improvements You Can Mention
+
+Advanced Retrieval: Implementing hybrid search (keyword + semantic)
+Model Upgrades: Testing newer models like Mistral-8x7B or medical-specific models
+Evaluation Metrics: Adding RAGAS or custom evaluation for response quality
+Deployment: Containerization with Docker and cloud deployment
+Security: Adding user authentication and data privacy measures
+
+Metrics & Results
+
+Chunk Size Optimization: 500 characters with 50 overlap for best context preservation
+Retrieval Accuracy: Top-3 document retrieval for comprehensive context
+Response Quality: Grounded responses with source attribution
+User Experience: Real-time chat interface with conversation history
+
+** If interviewer ask me why use langchain ?
+I used LangChain because building a medical chatbot requires multiple AI components working together - document retrieval, conversation memory, safe response generation, and error handling. 
+LangChain provides pre-built, tested chains that handle this orchestration automatically.
+
+Without it, I'd need to write hundreds of lines of custom code to connect FAISS searches with HuggingFace models, manage conversation context, and ensure medical safety. 
+LangChain's RetrievalQA chain does this in just a few lines, letting me focus on the medical accuracy rather than plumbing code.
+
+Plus, for medical applications, I need reliability and safety features that LangChain provides out-of-the-box, like proper error handling and response validation."**
+Key Takeaway: LangChain is the "glue" that makes your different AI tools work together smoothly - 
+it's not just one more library, it's the orchestration layer that makes your project possible!RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses. Sonnet 4
